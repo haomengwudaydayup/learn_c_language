@@ -1,0 +1,35 @@
+/*
+	结构体的重点应用学习
+*/
+
+/*测试代码区*/
+#include<stdio.h>
+#include<stdlib.h>
+#include<stddef.h>		//计算偏移量的值
+/*
+	在windows平台下默认对齐数为8
+	LINUX平台下默认对齐数为4
+	在这里我们可以通过#pragma pack(size_setp)；来设置调节对齐数，修改默认对齐数
+	同样使用#pragma pack();	 来取消。
+*/
+struct example1
+{
+	char str;
+	int age;
+	double sorce;
+}s1;
+
+int main()
+{
+	printf("num = %d\n", sizeof(s1));
+	printf("num1 = %d\n", offsetof(struct example1, str));
+	printf("num2 = %d\n", offsetof(struct example1, age));
+	printf("num3 = %d\n", offsetof(struct example1, sorce));
+	printf("num4 = %p\n", &(s1.str));
+	printf("num5 = %p\n", &(s1.age));
+	printf("num6 = %p\n", &(s1.sorce));
+
+	printf("num_p = %p\n", &(s1.age) - &(s1.str));
+	system("pause");
+	return 0;
+}
