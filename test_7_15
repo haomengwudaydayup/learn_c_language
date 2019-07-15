@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+#if 0
+int main()
+{
+	int i = UINT_MAX;
+	int j = 0;
+	int count = 0;
+	for (j = 0; j < 32; j++)
+	{
+		if (((i >> j) & 1) == 1)
+		{
+			count++;
+
+		}
+	}
+	printf("count = %d\n", count);
+	system("pause");
+	return 0;
+}
+#elif 0
+int main()
+{
+	char arr[2][4];
+	strcpy((char *)arr, "you");
+	strcpy(arr[1], "me");
+	arr[0][3] = '&';
+	printf("%s\n", arr);
+	system("pause");
+	return 0;
+}
+
+#elif 1
+int fun(int x)
+{
+	int count = 0;
+	while (x)
+	{
+		count++;
+		x = x & (x - 1);
+	}
+	return count;
+}
+int main()
+{
+	printf("%d\n", fun(2019));
+	system("pause");
+	return 0;
+}
+#endif // 0
+
